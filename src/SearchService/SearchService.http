@@ -1,0 +1,9 @@
+@SearchService_HostAddress = http://localhost:7002/api
+
+GET {{SearchService_HostAddress}}/search
+Accept: application/json
+
+###
+
+GET {{SearchService_HostAddress}}/search?searchTerm=ford
+Accept: application/json
