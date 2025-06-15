@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "ms-dotnettools.csdevkit",
+    "ms-dotnettools.vscodeintellicode-csharp",
+    "ms-dotnettools.csharp",
+    "patcx.vscode-nuget-gallery",
+    "ckolkman.vscode-postgres"
+  ]
+}

@@ -1,0 +1,9 @@
+@AuctionService_HostAddress = http://localhost:7001/api
+
+GET {{AuctionService_HostAddress}}/auctions
+Accept: application/json
+
+###
+
+GET {{AuctionService_HostAddress}}/auctions/40490065-dac7-46b6-acc4-df507e0d6570
+Accept: application/json
