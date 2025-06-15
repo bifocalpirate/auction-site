@@ -5,5 +5,18 @@ Accept: application/json
 
 ###
 
-GET {{AuctionService_HostAddress}}/auctions/40490065-dac7-46b6-acc4-df507e0d6570
+POST {{AuctionService_HostAddress}}/auctions
 Accept: application/json
+Content-Type: application/json
+
+{
+    "make":"Porsche",
+    "model":"Cayenne",
+    "colour":"Gold",
+    "year":2022,
+    "mileage":"120000",
+    "imageUrl":"https://cdn.pixabay.com/photo/2019/12/26/20/50/audi-r8-4721217_960_720.jpg",
+    "reservePrice":320000,
+    "auctionEnd":"2025-12-15T16:38:01.098Z"
+}
+
