@@ -1,7 +1,8 @@
 {
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#580D3A",
-        "titleBar.activeBackground": "#7C1252",
-        "titleBar.activeForeground": "#FFFCFD"
+  "mdb.presetConnections": [
+    {
+      "name": "Preset Connection",
+      "connectionString": "mongodb://localhost:27017"
     }
+  ]
 }

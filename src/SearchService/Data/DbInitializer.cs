@@ -13,7 +13,7 @@ public class DbInitializer
         await DB.Index<Item>()
             .Key(x => x.Make, KeyType.Text)
             .Key(x => x.Model, KeyType.Text)
-            .Key(x => x.Colour, KeyType.Text)
+            .Key(x => x.Color, KeyType.Text)
             .CreateAsync();
 
         var count = await DB.CountAsync<Item>();

@@ -10,9 +10,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "make":"Porsche",
-    "model":"Cayenne",
-    "colour":"Gold",
+    "make":"Subaru",
+    "model":"Foo",
+    "color":"Gold",
     "year":2022,
     "mileage":"120000",
     "imageUrl":"https://cdn.pixabay.com/photo/2019/12/26/20/50/audi-r8-4721217_960_720.jpg",

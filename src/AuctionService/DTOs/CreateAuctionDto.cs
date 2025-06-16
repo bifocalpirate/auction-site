@@ -11,7 +11,7 @@ public class CreateAuctionDto
     [Required]
     public int Year { get; set; }
     [Required]
-    public string? Colour { get; set; }
+    public string? Color { get; set; }
     [Required]
     public int Mileage { get; set; }
     [Required]
