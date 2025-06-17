@@ -76,7 +76,7 @@ public class AuctionsController : ControllerBase
         auction.Item.Mileage = updateAuctionDto.Mileage ?? auction.Item.Mileage;
         auction.Item.Year = updateAuctionDto.Year ?? auction.Item.Year;
 
-        await _publishEndpoint.Publish<AuctionUpdated>(_mapper.Map<AuctionUpdated>(auction));
+        await _publishEndpoint.Publish(_mapper.Map<AuctionUpdated>(auction));
         _context.Auctions.Update(auction);
 
         var result = await _context.SaveChangesAsync() > 0;
@@ -91,6 +91,8 @@ public class AuctionsController : ControllerBase
         //TODO: security check seller == username
 
         _context.Auctions.Remove(auction);
+
+        await _publishEndpoint.Publish<AuctionDeleted>(new { Id = auction.Id.ToString() });
 
         var result = await _context.SaveChangesAsync() > 0;
         if (!result) return BadRequest("Could not delete item.");
