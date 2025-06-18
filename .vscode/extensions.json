@@ -4,6 +4,7 @@
     "ms-dotnettools.vscodeintellicode-csharp",
     "ms-dotnettools.csharp",
     "patcx.vscode-nuget-gallery",
-    "ckolkman.vscode-postgres"
+    "ckolkman.vscode-postgres",
+    "stuart.unique-window-colors"
   ]
 }
