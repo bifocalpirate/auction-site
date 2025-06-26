@@ -5,6 +5,8 @@
     "ms-dotnettools.csharp",
     "patcx.vscode-nuget-gallery",
     "ckolkman.vscode-postgres",
-    "stuart.unique-window-colors"
+    "stuart.unique-window-colors",
+    "ms-azuretools.vscode-containers",
+    "ms-vscode-remote.remote-wsl"
   ]
 }

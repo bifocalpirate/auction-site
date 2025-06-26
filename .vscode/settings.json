@@ -4,5 +4,10 @@
       "name": "Preset Connection",
       "connectionString": "mongodb://localhost:27017"
     }
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#500065",
+    "titleBar.activeBackground": "#70018E",
+    "titleBar.activeForeground": "#FEFBFF"
+  }
 }
