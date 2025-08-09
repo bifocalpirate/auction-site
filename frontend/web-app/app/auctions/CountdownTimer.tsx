@@ -1,4 +1,4 @@
-import { Span } from "next/dist/trace";
+"use client";
 import React from "react";
 import Countdown, { zeroPad } from "react-countdown";
 
@@ -35,7 +35,7 @@ const renderer = ({
 };
 
 type Props = {
-  auctionEnd: string;
+  auctionEnd: string|undefined;
 };
 export default function CountdownTimer({ auctionEnd }: Props) {
   return (
