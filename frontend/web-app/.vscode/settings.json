@@ -1,7 +1,25 @@
 {
-    "workbench.colorCustomizations": {
-        "activityBar.background": "#2F2F0D",
-        "titleBar.activeBackground": "#424212",
-        "titleBar.activeForeground": "#FBFBEF"
-    }
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#2F2F0D",
+    "titleBar.activeBackground": "#424212",
+    "titleBar.activeForeground": "#FBFBEF"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "theme"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "twMerge\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "createTheme(?:<\\w+>)?\\s*\\(([^)]*)\\)",
+      "{?\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?}?"
+    ]
+  ]
 }
