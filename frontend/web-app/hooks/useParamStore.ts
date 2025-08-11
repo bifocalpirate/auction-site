@@ -9,7 +9,7 @@ type State = {
 
 type Actions = {
     setParams: (params: Partial<State>) => void;
-    resetParams: () => void;
+    reset: () => void;
 }
 
 const initialState: State = {
@@ -23,12 +23,19 @@ export const useParamsStore = create<State & Actions>((set) => ({
 
     ...initialState,
 
-    setParams:(newParams:Partial<State>)=>{
+    setParams:(newParams:Partial<State>) => {
         set((state)=>{
-            if (newParams.pageNumber){
-                return {...state, pageNumber:newParams.pageNumber}
-            })
+            if (newParams.pageNumber)
+            {
+                return { ...state, pageNumber: newParams.pageNumber }
+            }
+            else
+            {
+                return { ...state, ...newParams, pageNumber:1 }
+            }   
+                            
         })
     },
 
-    reset:()=>{}}));
+    reset:()=>{set(initialState)}
+}));
