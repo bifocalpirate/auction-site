@@ -1,34 +1,50 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import AuctionCard from "./AuctionCard";
 import AppPagination from "../components/AppPagination";
-import { Auction } from "@/types";
+import { Auction, PagedResult } from "@/types";
 import { getData } from "../nav/actions/auctionActions";
 import Filters from "./Filters";
+import { useParams } from "next/navigation";
+import { shallow, useShallow } from "zustand/shallow";
+import { useParamsStore } from "@/hooks/useParamStore";
+import qs from "query-string";
 
 export default function Listings() {
-  const [auctions, setAuctions] = useState<Auction[]>([]);
-  const [pageCount, setPageCount] = useState(0);
-  const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(4);
+  const [data, setData] = useState<PagedResult<Auction>>();
+  const params = useParamsStore(
+    useShallow((state) => ({
+      pageNumber: state.pageNumber,
+      pageSize: state.pageSize,
+      searchTerm: state.searchTerm,
+    }))
+  );
+
+  const setParams = useParamsStore((state) => state.setParams);
+  const url = qs.stringifyUrl(
+    { url: "", query: params },
+    { skipEmptyString: true}
+  );
+
+  
+
+  function setPageNumber(pageNumber: number) {
+    setParams({ pageNumber });
+  }
 
   useEffect(() => {
-    getData(pageNumber, pageSize).then((data) => {
-      setAuctions(data.results);
-      setPageCount(data.pageCount);
+    getData(url).then((data) => {
+      setData(data);
     });
-  }, [pageNumber, pageSize]);
-  if (auctions.length === 0) return <h3>Loading...</h3>;
+  }, [url]);
+
+  if (!data) return <h3>Loading...</h3>;
 
   return (
     <>
-      <Filters
-        pageSize={pageSize}
-        setPageSize={setPageSize}
-        pageSizes={[4, 8, 12, 16]}
-      />
+      <Filters />
       <div className="grid grid-cols-4 gap-6">
-        {auctions.map((auction) => (
+        {data.results.map((auction) => (
           <AuctionCard
             key={auction.id}
             auction={auction}
@@ -38,8 +54,8 @@ export default function Listings() {
       <div className="flex justify-center mt-4">
         <AppPagination
           pageChanged={setPageNumber}
-          currentPage={pageNumber}
-          pageCount={pageCount}
+          currentPage={params.pageNumber}
+          pageCount={data.pageCount}
         />
       </div>
     </>
