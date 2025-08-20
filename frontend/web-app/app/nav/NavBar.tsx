@@ -13,7 +13,7 @@ export default async function NavBar() {
         bg-white p-5 items-center text-gray-800 shadow-md shadow-neutral-300">
       <Logo />
       <Search />
-      {user ? <UserActions /> : <LoginButton />}
+      {user ? <UserActions user={user} /> : <LoginButton />}
     </header>
   );
 }
